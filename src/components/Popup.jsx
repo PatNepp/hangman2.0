@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { winOrLose } from '../helpers/helpers'
 
-const Popup = ({correctLetters, selectedWord, wrongLetters, setPlayable}) => {
+const Popup = ({correctLetters, selectedWord, wrongLetters, setPlayable, playAgain}) => {
 let finalMessage = ''
 let finalMessageText = ''
 let playable = true
@@ -22,7 +22,7 @@ useEffect(() => setPlayable(playable))
         <div className="popup">
             <h2>{finalMessage}</h2>
             <h4>{finalMessageText}</h4>
-            <button className="play-button">Play Again</button>
+            <button onClick={playAgain}>Play Again</button>
         </div>
     </div>  )
 }
