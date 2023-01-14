@@ -1,6 +1,8 @@
 import React from 'react'
 
-const Figure = () => {
+const Figure = ({wrongLetters}) => {
+  const errors = wrongLetters.length;
+
   return (
     <svg height="250" width="200" className="figure-container">
         {/* <!-- Hanger --> */}
@@ -9,15 +11,15 @@ const Figure = () => {
         <line x1="60" y1="20" x2="60" y2="220" />
         <line x1="25" y1="220" x2="95" y2="220" />
         {/* <!-- Head --> */}
-        <circle cx="140" cy="70" r="20" className="figure-part"/>
+        {errors > 0 && <circle cx="140" cy="70" r="20"/>}
         {/* <!-- Body --> */}
-        <line x1="140" y1="90" x2="140" y2="160" className="figure-part"/>
+        {errors > 1 && <line x1="140" y1="90" x2="140" y2="160"/>}
         {/* <!-- Arms --> */}
-        <line x1="110" y1="130" x2="140" y2="110" className="figure-part"/>
-        <line x1="140" y1="110" x2="170" y2="130" className="figure-part"/>
+        {errors > 2 && <line x1="110" y1="130" x2="140" y2="110"/>}
+        {errors > 3 && <line x1="140" y1="110" x2="170" y2="130"/>}
         {/* <!-- Legs --> */}
-        <line x1="120" y1="205" x2="140" y2="160" className="figure-part"/>
-        <line x1="140" y1="160" x2="160" y2="205" className="figure-part"/>
+        {errors > 4 && <line x1="120" y1="205" x2="140" y2="160"/>}
+        {errors > 5 && <line x1="140" y1="160" x2="160" y2="205"/>}
     </svg>
     )
 }
